@@ -1,59 +1,206 @@
-# Tripsquad
+# TripSquad 🌍
+**Development Status:** 🚧 Active Development
+> Real-time collaborative trip planning platform where friends can plan vacations together without the chaos of group chats and spreadsheets.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
+## 📋 Overview
 
-## Development server
+**TripSquad** is a social trip planning application that solves the nightmare of coordinating group travel. Vote on destinations, split expenses, build itineraries, and keep everyone in sync with real-time updates.
 
-To start a local development server, run:
+## 🚀 Tech Stack
 
+### Frontend
+- **Angular 18+** - Standalone components, signals, and modern Angular features
+- **NG-ZORRO** - Ant Design component library for Angular
+- **RxJS** - Reactive programming for real-time data streams
+- **SCSS** - Modular styling with variables and mixins
+- **TypeScript** - Type-safe development
+
+### Backend
+- **FastAPI** - High-performance Python web framework
+- **Supabase** - PostgreSQL database with real-time subscriptions
+- **WebSockets** - Real-time chat and live updates
+- **Pydantic** - Data validation and serialization
+
+### Additional Tools
+- **Google Maps API** - Location services and route planning
+- **Currency API** - Real-time exchange rates
+- **Weather API** - Forecast integration
+- **Jasmine/Karma** - Unit testing
+- **Cypress** - E2E testing
+
+## 🏁 Getting Started
+
+### Prerequisites
+```bash
+# Node.js 18+ and npm
+node --version
+npm --version
+
+# Angular CLI
+npm install -g @angular/cli
+```
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/tripsquad.git
+cd tripsquad
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Set up environment variables
+```bash
+cp src/environments/environment.example.ts src/environments/environment.ts
+# Edit environment.ts with your Supabase credentials
+```
+
+4. Start development server
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/`
 
-## Code scaffolding
+## 🛠️ Development
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Code Scaffolding
 ```bash
-ng generate component component-name
+# Generate standalone component
+ng generate component features/trip-card --standalone
+
+# Generate service
+ng generate service core/services/trip
+
+# Generate pipe
+ng generate pipe shared/pipes/currency-converter --standalone
+
+# Generate guard
+ng generate guard core/guards/auth
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+### Project Structure
+```
+src/
+├── app/
+│   ├── core/           # Services, guards, interceptors
+│   ├── features/       # Feature modules (trips, chat, expenses)
+│   ├── shared/         # Shared components, pipes, directives
+│   └── styles/         # Global SCSS files
+├── assets/             # Static assets
+└── environments/       # Environment configurations
 ```
 
-## Building
+### Key Commands
+```bash
+# Development server
+ng serve
 
-To build the project run:
+# Build production
+ng build --configuration production
 
+# Run tests
+ng test
+
+# Run tests with coverage
+ng test --code-coverage
+
+# Lint code
+ng lint
+
+# Format code
+npm run format
+```
+
+## 🧪 Testing
+
+### Unit Tests
+```bash
+# Run tests in watch mode
+ng test
+
+# Run tests once (CI)
+ng test --watch=false --browsers=ChromeHeadless
+
+# Generate coverage report
+ng test --code-coverage
+```
+
+### E2E Tests
+```bash
+# Install Cypress
+npm install --save-dev cypress
+
+# Run Cypress
+npx cypress open
+```
+
+## 📦 Build & Deployment
+
+### Development Build
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+### Production Build
 ```bash
-ng test
+ng build --configuration production
 ```
 
-## Running end-to-end tests
+Build artifacts will be stored in the `dist/` directory.
 
-For end-to-end (e2e) testing, run:
+## 🔧 Configuration
 
-```bash
-ng e2e
+### NG-ZORRO Theme
+Customize Ant Design theme in `src/styles.scss`:
+```scss
+$primary-color: #2c3e50;
+$success-color: #27ae60;
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Environment Variables
+Configure in `src/environments/environment.ts`:
+- Supabase URL and anon key
+- API endpoints
+- Google Maps API key
+- Feature flags
 
-## Additional Resources
+## 📚 Key Features
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Real-time Chat** - WebSocket-powered group messaging
+- **Expense Splitting** - Track and split costs automatically
+- **Destination Voting** - Democratic trip planning
+- **Collaborative Itinerary** - Drag-and-drop schedule builder
+- **Live Presence** - See who's online and planning
+- **Smart Notifications** - Stay updated on important changes
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3
+- UI components from [NG-ZORRO](https://ng.ant.design)
+- Real-time powered by [Supabase](https://supabase.com)
+
+## 📞 Support
+
+For issues and questions:
+- Open an issue on GitHub
+- Check the [documentation](./docs)
+- Review [Angular CLI docs](https://angular.dev/tools/cli)
+
+---
